@@ -33,7 +33,7 @@ for x in range(startID, endID + 1): #Range of ID to scan
 			print("[*] Current scan ID: {0}\r".format(x)) #Do not print r.url on failure
 			continue
 		else: #The request URL is not the same as newURL. Redirection happens. Proceed to print the URL
-			print("[+] Current scan ID: {0} \t\t{1}".format(x, r.url)) #Print current URL
+			print("[+] Current scan ID: {0}    \t{1}".format(x, r.url)) #Print current URL
 			admins.append("{0}\t: {1}".format(x, r.url)) #Save ID and URL of the admin page to be printed
 	except KeyboardInterrupt:
 		break #If process is interrupted, stop scanning
