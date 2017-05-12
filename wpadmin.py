@@ -35,8 +35,10 @@ for x in range(startID, endID + 1): #Range of ID to scan
 		else: #The request URL is not the same as newURL. Redirection happens. Proceed to print the URL
 			print("[+] Current scan ID: {0}    \t{1}".format(x, r.url)) #Print current URL
 			admins.append("{0}\t: {1}".format(x, r.url)) #Save ID and URL of the admin page to be printed
+
 	except KeyboardInterrupt:
 		break #If process is interrupted, stop scanning
+		
 print("\n[+] Found admins:\nID\t: Admin URL")
 for admin in admins:
 	print("{0}".format(admin)) #Print all collected admin URLs
