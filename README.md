@@ -26,7 +26,7 @@ To run the tool use:
 ```
 python wpadmin.py [URL] [startID] [endID]
 ```
-Where URL is the full URL of the wordpress website
+Where URL is the full URL of the wordpress website without the subdomain. It should be http://domain.com not http://www.domain.com
 startID and endID determines the ID range of the scan
 
 You can Ctrl+C any time to stop the scan. The tool will output all currently collected admins.
