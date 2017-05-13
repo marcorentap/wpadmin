@@ -4,7 +4,7 @@ import argparse
 import requests
 
 parser = argparse.ArgumentParser()
-parser.add_argument("URL", help="The FULL URL for the wordpress 'root'. Usually the URL of the website domain")
+parser.add_argument("URL", help="The FULL URL for the wordpress 'root' without subdomain. Usually the URL of the website domain")
 parser.add_argument("startID", help="Starting Admin ID to scan", type=int)
 parser.add_argument("endID", help="Last Admin ID to scan", type=int)
 args = parser.parse_args()
@@ -24,7 +24,7 @@ print("[*] ^C anytime to stop scanning")
 admins = [] #To store found admin
 for x in range(startID, endID + 1): #Range of ID to scan
 	try:
-		#Fix the URL  format to http://www.domain.com/?author=x or http://www.domain.com?author=x
+		#Fix the URL  format to http://domain.com/?author=x or http://www.domain.com?author=x
 		newURL = URL + "/?author={0}".format(x) 
 		newURL2 = URL + "?author={0}".format(x) #If user already put / at the end of the URL
 
@@ -33,7 +33,7 @@ for x in range(startID, endID + 1): #Range of ID to scan
 			print("[*] Current scan ID: {0}\r".format(x)) #Do not print r.url on failure
 			continue
 		else: #The request URL is not the same as newURL. Redirection happens. Proceed to print the URL
-			print("[+] Current scan ID: {0} \t{1}".format(x, r.url)) #Print current URL
+			print("[+] Current scan ID: {0} \t\t{1}".format(x, r.url)) #Print current URL
 			admins.append("{0}\t: {1}".format(x, r.url)) #Save ID and URL of the admin page to be printed
 	except KeyboardInterrupt:
 		break #If process is interrupted, stop scanning
