@@ -6,7 +6,7 @@ wpadmin is an open source tool to discover the admins of a wordpress website.
 
 You can download the latest zip file by clicking [here](https://github.com/marcowen20/wpadmin/archive/master.zip)
 
-Preferably, you can download sqlmap by cloning the Git repository:
+Preferably, you can download wpadmin by cloning the Git repository:
 ```
 git clone https://github.com/marcowen20/wpadmin.git wpadmin
 ```
