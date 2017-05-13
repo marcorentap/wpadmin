@@ -25,14 +25,15 @@ admins = [] #To store found admin
 for x in range(startID, endID + 1): #Range of ID to scan
 	try:
 		#Fix the URL  format to http://www.domain.com/?author=x or http://www.domain.com?author=x. Both works
-		newURL = URL + "/?author={0}".format(x)
+		newURL = URL + "/?author={0}".format(x) 
+		newURL2 = URL + "?author={0}".format(x) #If user already put / at the end of the URL
 
 		r = requests.get(newURL)
-		if r.url == newURL: #Check if the request URL is the same as newURL. If they are the same, it indicates no redirection to author page. Author with ID X does not exist
+		if r.url == newURL or r.url == newURL2: #Check if the request URL is the same as newURL. If they are the same, it indicates no redirection to author page. Author with ID X does not exist
 			print("[*] Current scan ID: {0}\r".format(x)) #Do not print r.url on failure
 			continue
 		else: #The request URL is not the same as newURL. Redirection happens. Proceed to print the URL
-			print("[+] Current scan ID: {0}\tFound {1}".format(x, r.url)) #Print current URL
+			print("[+] Current scan ID: {0} \t{1}".format(x, r.url)) #Print current URL
 			admins.append("{0}\t: {1}".format(x, r.url)) #Save ID and URL of the admin page to be printed
 	except KeyboardInterrupt:
 		break #If process is interrupted, stop scanning
