@@ -19,8 +19,8 @@ _ _ _ ___  ____ ___  _  _ _ _  _
 |_|_| |    |  | |__/ |  | | | \| https://github.com/marcowen20
 
 [*] Use --help' for additional information""")
-print("[*] URL: {0}\nstartID: {1}\nendID: {2}\n".format(URL, startID, endID))
-
+print("[*] URL: {0}\n[*]startID: {1}\n[*]endID: {2}\n".format(URL, startID, endID))
+print("[*] ^C anytime to stop scanning")
 admins = [] #To store found admin
 for x in range(startID, endID + 1): #Range of ID to scan
 	try:
@@ -36,6 +36,6 @@ for x in range(startID, endID + 1): #Range of ID to scan
 			admins.append("{0}\t: {1}".format(x, r.url)) #Save ID and URL of the admin page to be printed
 	except KeyboardInterrupt:
 		break #If process is interrupted, stop scanning
-print("\n[*] ID\t: Admin URL")
+print("\n[+] Found admins:\nID\t: Admin URL")
 for admin in admins:
-	print("[+] {0}".format(admin)) #Print all collected admin URLs
+	print("{0}".format(admin)) #Print all collected admin URLs
