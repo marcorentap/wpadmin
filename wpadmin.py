@@ -24,7 +24,7 @@ print("[*] ^C anytime to stop scanning")
 admins = [] #To store found admin
 for x in range(startID, endID + 1): #Range of ID to scan
 	try:
-		#Fix the URL  format to http://www.domain.com/?author=x or http://www.domain.com?author=x. Both works
+		#Fix the URL  format to http://www.domain.com/?author=x or http://www.domain.com?author=x
 		newURL = URL + "/?author={0}".format(x) 
 		newURL2 = URL + "?author={0}".format(x) #If user already put / at the end of the URL
 
