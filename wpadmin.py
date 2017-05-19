@@ -1,5 +1,3 @@
-#Before anything, I am still a beginner in programming. Any bad practices should be pointed out and constructive criticism is very much appreciated.
-
 import argparse
 import requests
 
